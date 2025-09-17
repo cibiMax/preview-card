@@ -144,4 +144,8 @@ main {
         grid-template-areas: "bgimg" "content";
     }
 
+    .content{
+        gap: 10px;
+    }
+
 }
