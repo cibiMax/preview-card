@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+
+    background-color: hsl(30, 38%, 92%);
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-areas: ". . ." ". section ." ". . .";
+    height: 100vh;
+    width: 100vw;
+
+
+}
+
+.section {
+    grid-area: section;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "bgimg content";
+    background-color: white;
+    border-radius: 10px;
+}
+
+.bgimg {
+    grid-area: bgimg;
+    background: url(./image-product-desktop.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.content {
+    padding: 20px;
+    grid-area: content;
+    display: grid;
+    grid-template-rows: repeat(5, fit-content);
+    grid-template-columns: 1fr;
+    gap: 20px;
+    grid-template-areas: "header" "heading" "description" "price" "addtocart";
+}
+
+.header {
+    grid-area: header;
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 5;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.heading {
+    grid-area: heading;
+    color: black;
+    font-size: 30px;
+    font-weight: 900;
+
+}
+
+.description {
+    grid-area: description;
+    color: hsl(228, 12%, 48%);
+    font-size: 20px;
+
+}
+
+.price {
+    grid-area: price;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "originalprice mrp";
+
+
+}
+
+.mrp {
+    grid-area: mrp;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    color: hsl(228, 12%, 48%);
+    text-decoration-line: line-through;
+
+}
+
+.originalprice {
+    grid-area: originalprice;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: hsl(158, 36%, 37%);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.addtocart {
+    grid-area: addtocart;
+    background-color: hsl(158, 36%, 37%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.cart-icon {
+    background: url(./icon-cart.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+
+.addtocart:active {
+    background-color: hsl(158, 42%, 18%);
+}
+
+@media (max-width:475px) {
+    main {
+        display: grid;
+        grid-template-areas: "section";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+    }
+
+    .section {
+        grid-area: section;
+        display: grid;
+        grid-template-rows: 50vh 50vh;
+        grid-template-columns: 1fr;
+        grid-template-areas: "bgimg" "content";
+    }
+
+}
